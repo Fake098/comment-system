@@ -9,7 +9,7 @@ export interface ReplyOfReplyData {
     userImageUrl: string;
     username: string;
     replyText: string;
-    timestamp?: firebase.firestore.Timestamp;
+    timestamp?: { seconds: number; nanoseconds: number };
     likes?: userID[];
 }
 
@@ -18,7 +18,7 @@ export interface ReplyData {
     userImageUrl: string;
     username: string;
     replyText: string;
-    timestamp?: firebase.firestore.Timestamp;
+    timestamp?: { seconds: number; nanoseconds: number };
     likes?: userID[];
     replies?: { [key: string]: ReplyOfReplyData }; // Replies stored as an object
 }
@@ -29,7 +29,7 @@ export interface CommentData {
     userImageUrl: string;
     username: string;
     commentText: string;
-    timestamp?: firebase.firestore.Timestamp;
+    timestamp?: { seconds: number; nanoseconds: number };
     replies?: { [key: string]: ReplyData }; // Replies stored as an object
     likes?: userID[];
 }
